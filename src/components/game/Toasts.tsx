@@ -30,7 +30,7 @@ export default function Toasts() {
   const shown = state.toasts.slice(-2);
 
   return (
-    <div className="pointer-events-none fixed inset-x-0 top-[7.75rem] z-50 flex flex-col items-center gap-2 px-3 sm:inset-x-auto sm:right-4 sm:top-[152px] sm:w-[300px] sm:items-stretch sm:px-0">
+    <div className="pointer-events-none fixed z-50 hidden flex-col gap-2 sm:inset-x-auto sm:right-4 sm:top-[152px] sm:flex sm:w-[300px] sm:items-stretch">
       {shown.map((t) => (
         <ToastCard key={t.id} t={t} onDone={dropToast} />
       ))}

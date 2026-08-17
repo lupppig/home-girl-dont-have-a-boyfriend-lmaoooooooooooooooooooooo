@@ -67,14 +67,14 @@ export default function Applications() {
           <>
             <div key={app.id} className="pop mt-4 overflow-hidden rounded-xl border-2 border-plum bg-ivory">
               <div className="grid sm:grid-cols-[10rem_1fr]">
-                <div className="relative min-h-28 overflow-hidden border-b-2 border-plum min-[430px]:min-h-36 sm:min-h-0 sm:border-r-2 sm:border-b-0">
+                <div className="relative h-[min(52dvh,22rem)] overflow-hidden border-b-2 border-plum bg-plum/8 sm:h-auto sm:min-h-0 sm:border-r-2 sm:border-b-0">
                   <Image
                     src={APPLICANT_PHOTOS[i]}
                     alt={`Applicant portrait for ${app.name}`}
                     fill
                     priority={i === 0}
                     sizes="(max-width: 640px) 100vw, 160px"
-                    className="object-cover object-top grayscale-[12%]"
+                    className="object-contain object-center sm:object-cover sm:object-top sm:grayscale-[12%]"
                   />
                   <span className="sys absolute bottom-2 left-2 rounded-sm bg-plum/90 px-2 py-1 text-[0.48rem] text-ivory">
                     FACE MATCH · {91 - i * 3}%
@@ -103,7 +103,7 @@ export default function Applications() {
                     key={photo.src}
                     className={`relative h-7 w-7 shrink-0 overflow-hidden rounded-md border-2 sm:h-8 sm:w-8 ${photoIndex === i ? "border-hotpink" : "border-plum/30 opacity-55"}`}
                   >
-                    <Image src={photo} alt="" fill sizes="32px" className="object-cover object-top" />
+                    <Image src={photo} alt="" fill sizes="32px" className="object-contain object-center sm:object-cover sm:object-top" />
                   </span>
                 ))}
                 <span className="micro ml-1 hidden text-[0.48rem] text-burgundy min-[390px]:inline">5 reviews · 1 on reserve</span>
