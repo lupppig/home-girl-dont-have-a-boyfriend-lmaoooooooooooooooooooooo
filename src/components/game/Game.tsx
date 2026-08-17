@@ -102,7 +102,7 @@ export default function Game() {
   return (
     <div className="fixed inset-0 overflow-hidden">
       {/* the facility */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 opacity-60 saturate-[0.72] contrast-[0.88] transition-[filter,opacity] duration-500">
         <LabScene
           focus={focus}
           onPoke={onPoke}
@@ -117,6 +117,12 @@ export default function Game() {
           daysSingle={daysSingle}
         />
       </div>
+
+      {/* Keep the lab atmospheric while giving the game copy visual priority. */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-10 bg-[linear-gradient(180deg,rgba(22,4,13,0.18)_0%,rgba(22,4,13,0.28)_48%,rgba(22,4,13,0.62)_100%)]"
+      />
 
       {/* red alert wash */}
       {alarm && <div className="pointer-events-none absolute inset-0 z-20 alarm bg-alarm/10" />}

@@ -202,33 +202,33 @@ export default function LabScene({
   return (
     <Canvas
       shadows
-      dpr={[1, touch ? 1.4 : 1.7]}
+      dpr={[0.85, touch ? 1.05 : 1.25]}
       camera={{ position: [0, 3.1, 8.6], fov: 36 }}
-      gl={{ antialias: true, toneMapping: THREE.ACESFilmicToneMapping, toneMappingExposure: 0.72 }}
+      gl={{ antialias: true, toneMapping: THREE.ACESFilmicToneMapping, toneMappingExposure: 0.58 }}
       onPointerMissed={() => (document.body.style.cursor = "auto")}
     >
       <color attach="background" args={["#1d0713"]} />
       <fog attach="fog" args={["#26091a", 14, 34]} />
 
-      <ambientLight intensity={0.22} color="#ffe9f2" />
-      <hemisphereLight intensity={0.2} color="#ffd7e6" groundColor="#6b3d4f" />
+      <ambientLight intensity={0.18} color="#ffe9f2" />
+      <hemisphereLight intensity={0.16} color="#ffd7e6" groundColor="#6b3d4f" />
       <directionalLight
         position={[6, 10, 6]}
-        intensity={1.15}
+        intensity={0.85}
         color="#fff4ea"
         castShadow
-        shadow-mapSize={touch ? [1024, 1024] : [2048, 2048]}
+        shadow-mapSize={[1024, 1024]}
         shadow-camera-left={-12}
         shadow-camera-right={12}
         shadow-camera-top={12}
         shadow-camera-bottom={-12}
         shadow-bias={-0.0006}
       />
-      <pointLight position={[-6, 4, 4]} intensity={13} color={PALETTE.hotpink} distance={18} />
-      <pointLight position={[6, 3, 4]} intensity={8} color={PALETTE.lavender} distance={16} />
-      {emergencyArmed && <pointLight position={[0, 5, 3]} intensity={40} color={PALETTE.alarmRed} distance={22} />}
+      <pointLight position={[-6, 4, 4]} intensity={7} color={PALETTE.hotpink} distance={18} />
+      <pointLight position={[6, 3, 4]} intensity={4} color={PALETTE.lavender} distance={16} />
+      {emergencyArmed && <pointLight position={[0, 5, 3]} intensity={24} color={PALETTE.alarmRed} distance={22} />}
 
-      <Environment resolution={256} environmentIntensity={0.65}>
+      <Environment resolution={128} environmentIntensity={0.42}>
         <Lightformer form="rect" intensity={2.4} color="#ffffff" position={[0, 7, 5]} scale={[10, 4, 1]} target={[0, 1, 0]} />
         <Lightformer form="circle" intensity={2.6} color={PALETTE.hotpink} position={[-6, 3, 4]} scale={6} target={[0, 1, 0]} />
         <Lightformer form="circle" intensity={1.8} color={PALETTE.lavender} position={[6, 2, 4]} scale={5} target={[0, 1, 0]} />
@@ -258,7 +258,7 @@ export default function LabScene({
       <Boss active={bossActive} form={bossForm} hitPulse={bossHit} />
       <Celebration active={celebrate} />
 
-      <ContactShadows position={[0, 0.02, 0]} opacity={0.5} scale={26} blur={2.4} far={6} color="#3a0a20" />
+      <ContactShadows position={[0, 0.02, 0]} opacity={0.3} scale={26} blur={2.8} far={5} color="#3a0a20" />
 
       <OrbitControls
         makeDefault
@@ -267,7 +267,7 @@ export default function LabScene({
         enableDamping
         dampingFactor={0.08}
         rotateSpeed={0.35}
-        enableRotate={!touch}
+        enableRotate={false}
         minPolarAngle={0.85}
         maxPolarAngle={1.56}
         minAzimuthAngle={-0.6}
