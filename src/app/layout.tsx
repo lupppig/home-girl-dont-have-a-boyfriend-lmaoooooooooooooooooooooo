@@ -43,6 +43,10 @@ export const metadata: Metadata = {
   title: "SINGLE STATUS: CRITICAL — Boyfriend Finder 3000",
   description:
     "An unnecessarily sophisticated intervention program for one (1) girl who still does not have a boyfriend. Seven levels. One prank.",
+  icons: {
+    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
+    shortcut: "/icon.svg",
+  },
 };
 
 export const viewport: Viewport = {
