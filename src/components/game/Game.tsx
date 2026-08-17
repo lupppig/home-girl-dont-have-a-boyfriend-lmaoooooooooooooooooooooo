@@ -100,7 +100,7 @@ export default function Game() {
   };
 
   return (
-    <div className="fixed inset-0 overflow-hidden">
+    <main className="fixed inset-0 min-h-[100dvh] overflow-hidden">
       {/* the facility */}
       <div className="absolute inset-0 opacity-60 saturate-[0.72] contrast-[0.88] transition-[filter,opacity] duration-500">
         <LabScene
@@ -133,7 +133,7 @@ export default function Game() {
       {state.stage !== "boot" && state.stage !== "emergency" && state.stage !== "prank" && (
         <button
           onClick={findBoyfriend}
-          className="fixed bottom-3 left-3 z-40 rounded-full border-2 border-plum bg-gradient-to-b from-white to-cream px-3.5 py-2 text-plum shadow-[0_4px_0_0_var(--color-plum)] transition-transform active:translate-y-1 sm:bottom-auto sm:top-[124px] sm:left-4"
+          className="fixed top-[7.6rem] left-2.5 z-40 rounded-full border-2 border-plum bg-gradient-to-b from-white to-cream px-3 py-2 text-plum shadow-[0_4px_0_0_var(--color-plum)] transition-transform active:translate-y-1 sm:top-[124px] sm:left-4 sm:px-3.5"
         >
           <span className="sys text-[0.5rem]">♥ FIND BOYFRIEND</span>
           <span className="sys ml-1.5 text-[0.5rem] text-hotpink">{state.searchClicks}</span>
@@ -153,6 +153,6 @@ export default function Game() {
       {state.stage === "results" && <Results />}
 
       <Toasts />
-    </div>
+    </main>
   );
 }

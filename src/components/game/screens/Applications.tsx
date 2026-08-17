@@ -67,7 +67,7 @@ export default function Applications() {
           <>
             <div key={app.id} className="pop mt-4 overflow-hidden rounded-xl border-2 border-plum bg-ivory">
               <div className="grid sm:grid-cols-[10rem_1fr]">
-                <div className="relative min-h-44 overflow-hidden border-b-2 border-plum sm:min-h-0 sm:border-r-2 sm:border-b-0">
+                <div className="relative min-h-28 overflow-hidden border-b-2 border-plum min-[430px]:min-h-36 sm:min-h-0 sm:border-r-2 sm:border-b-0">
                   <Image
                     src={APPLICANT_PHOTOS[i]}
                     alt={`Applicant portrait for ${app.name}`}
@@ -97,27 +97,27 @@ export default function Applications() {
                   />
                 </div>
               </div>
-              <div className="flex items-center gap-1.5 border-t-2 border-plum bg-cream px-3 py-2" aria-label="Applicant queue">
+              <div className="flex items-center gap-1 border-t-2 border-plum bg-cream px-2 py-1.5 sm:gap-1.5 sm:px-3 sm:py-2" aria-label="Applicant queue">
                 {APPLICANT_PHOTOS.map((photo, photoIndex) => (
                   <span
                     key={photo.src}
-                    className={`relative h-8 w-8 overflow-hidden rounded-md border-2 ${photoIndex === i ? "border-hotpink" : "border-plum/30 opacity-55"}`}
+                    className={`relative h-7 w-7 shrink-0 overflow-hidden rounded-md border-2 sm:h-8 sm:w-8 ${photoIndex === i ? "border-hotpink" : "border-plum/30 opacity-55"}`}
                   >
                     <Image src={photo} alt="" fill sizes="32px" className="object-cover object-top" />
                   </span>
                 ))}
-                <span className="micro ml-1 text-[0.48rem] text-burgundy">5 reviews · 1 on reserve</span>
+                <span className="micro ml-1 hidden text-[0.48rem] text-burgundy min-[390px]:inline">5 reviews · 1 on reserve</span>
               </div>
             </div>
 
-            <div className="mt-4 grid gap-2.5 sm:grid-cols-3">
+            <div className="mt-3 grid grid-cols-2 gap-2 sm:mt-4 sm:grid-cols-3 sm:gap-2.5">
               <button className="btn btn-lime !text-[0.6rem]" onClick={() => act("accept")}>
                 ACCEPT
               </button>
               <button className="btn btn-cream !text-[0.6rem]" onClick={() => act("reject")}>
                 REJECT
               </button>
-              <button className="btn btn-danger !text-[0.6rem]" onClick={() => act("block")}>
+              <button className="btn btn-danger col-span-2 !text-[0.6rem] sm:col-span-1" onClick={() => act("block")}>
                 BLOCK IMMEDIATELY
               </button>
             </div>

@@ -27,10 +27,10 @@ function ToastCard({ t, onDone }: { t: Toast; onDone: (id: number) => void }) {
 
 export default function Toasts() {
   const { state, dropToast } = useGame();
-  const shown = state.toasts.slice(-3);
+  const shown = state.toasts.slice(-2);
 
   return (
-    <div className="pointer-events-none fixed inset-x-0 bottom-3 z-50 flex flex-col items-center gap-2 px-3 sm:inset-x-auto sm:bottom-auto sm:right-4 sm:top-[152px] sm:w-[300px] sm:items-stretch sm:px-0">
+    <div className="pointer-events-none fixed inset-x-0 top-[7.75rem] z-50 flex flex-col items-center gap-2 px-3 sm:inset-x-auto sm:right-4 sm:top-[152px] sm:w-[300px] sm:items-stretch sm:px-0">
       {shown.map((t) => (
         <ToastCard key={t.id} t={t} onDone={dropToast} />
       ))}

@@ -30,7 +30,7 @@ export default function Emergency({ onAlarm }: { onAlarm: (on: boolean) => void 
   }, []);
 
   return (
-    <div className="pointer-events-none fixed inset-0 z-40 flex flex-col items-center justify-center px-5 text-center">
+    <div className="pointer-events-none fixed inset-0 z-40 flex min-h-[100dvh] flex-col items-center justify-center overflow-y-auto px-5 py-6 text-center">
       <div className="alarm absolute inset-0" />
       <div className="absolute inset-x-0 top-0 h-2.5 warning-tape" />
       <div className="absolute inset-x-0 bottom-0 h-2.5 warning-tape" />

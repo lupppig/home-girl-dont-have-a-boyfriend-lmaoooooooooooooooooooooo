@@ -38,7 +38,7 @@ export default function Prank({ onCelebrate }: { onCelebrate: (on: boolean) => v
   const celebrating = phase === "found" || phase === "party";
 
   return (
-    <div className="pointer-events-none fixed inset-0 z-40 flex flex-col items-center justify-center px-5 text-center">
+    <div className="pointer-events-none fixed inset-0 z-40 flex min-h-[100dvh] flex-col items-center justify-center overflow-y-auto px-4 py-6 text-center sm:px-5">
       {celebrating && (
         <div className="rise">
           <p className="sys text-[0.7rem] text-lime sm:text-[0.95rem]">PROTOCOL COMPLETE</p>

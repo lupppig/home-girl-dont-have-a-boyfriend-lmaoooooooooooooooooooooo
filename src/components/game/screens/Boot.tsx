@@ -42,7 +42,7 @@ export default function Boot() {
   const bars = Math.round(pct / 5);
 
   return (
-    <div className="fixed inset-0 z-[60] flex flex-col items-center justify-center bg-[#07020a] px-5 text-center">
+    <div className="fixed inset-0 z-[60] flex min-h-[100dvh] flex-col items-center justify-center bg-[#07020a] px-5 py-[max(1.25rem,env(safe-area-inset-top))] text-center">
       {phase === "loading" && (
         <div className="w-full max-w-[520px] text-left">
           <ul className="sys space-y-1.5 text-[0.62rem] text-lime sm:text-[0.72rem]">

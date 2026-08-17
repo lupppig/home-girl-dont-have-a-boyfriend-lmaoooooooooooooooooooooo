@@ -5,9 +5,9 @@ import type { ReactNode } from "react";
 /** Game dialogue layer: docks to the bottom so the 3D lab stays visible. */
 export function Screen({ children, wide }: { children: ReactNode; wide?: boolean }) {
   return (
-    <div className="pointer-events-none fixed inset-0 z-30 flex flex-col justify-end px-2.5 pb-3 sm:px-6 sm:pb-6">
+    <div className="pointer-events-none fixed inset-0 z-30 flex flex-col justify-end px-2.5 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-[8.25rem] sm:px-6 sm:pt-[9.5rem] sm:pb-6">
       <div
-        className={`pointer-events-auto mx-auto max-h-[calc(100dvh-150px)] w-full overflow-y-auto overscroll-contain ${
+        className={`pointer-events-auto mx-auto max-h-full w-full overflow-y-auto overscroll-contain [scrollbar-width:thin] ${
           wide ? "max-w-[940px]" : "max-w-[760px]"
         }`}
       >
@@ -29,7 +29,7 @@ export function Dialog({
   className?: string;
 }) {
   return (
-    <div className={`rise ${tone === "dark" ? "panel-dark" : "panel"} p-4 sm:p-6 ${className}`}>
+    <div className={`rise ${tone === "dark" ? "panel-dark" : "panel"} p-3.5 sm:p-6 ${className}`}>
       {title && <p className="sys mb-3 text-[0.65rem] text-burgundy">{title}</p>}
       {children}
     </div>

@@ -35,7 +35,7 @@ export default function Hud() {
   if (state.stage === "boot") return null;
 
   return (
-    <div className="pointer-events-none fixed inset-x-0 top-0 z-40 px-2 pt-2 sm:px-4 sm:pt-4">
+    <div className="pointer-events-none fixed inset-x-0 top-0 z-40 px-2 pt-[max(0.5rem,env(safe-area-inset-top))] sm:px-4 sm:pt-4">
       <div className="mx-auto max-w-[1100px] rounded-2xl border-2 border-hotpink bg-[#1c0510]/92 px-3 py-2.5 shadow-[0_6px_0_0_#12030a] backdrop-blur sm:px-5 sm:py-3">
         <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1">
           <div className="flex items-baseline gap-3">
@@ -49,7 +49,7 @@ export default function Hud() {
             <span className="sys text-[0.95rem] text-hotpink sm:text-[1.15rem]">{level}</span>
           </div>
           {lv && (
-            <div className="order-3 w-full sm:order-none sm:w-auto">
+            <div className="order-3 hidden w-full min-[390px]:block sm:order-none sm:w-auto">
               <span className="sys text-[0.58rem] text-lavender">
                 LV.{lv.n} — {lv.name}
               </span>
@@ -57,7 +57,7 @@ export default function Hud() {
           )}
         </div>
 
-        <div className="mt-2.5 flex items-end gap-3 sm:gap-5">
+        <div className="mt-2 flex items-end gap-2.5 sm:mt-2.5 sm:gap-5">
           <Meter
             label="Boyfriend progress"
             value={state.progress}
